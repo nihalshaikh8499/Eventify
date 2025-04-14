@@ -57,12 +57,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'EventManager.wsgi.application'
 
 # ✅ DATABASE CONFIG FOR RENDER
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL", "postgres://myusername:mypassword@mydbhost:5432/mydatabase"),
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
