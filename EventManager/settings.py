@@ -1,7 +1,9 @@
 from pathlib import Path
 import os
 import dj_database_url 
+from dotenv import load_dotenv
 
+load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-cj9z22e96a+spv0a@fh!7tn1f=t2_$pu#lp@tbw3xppncx6z)p')  # ✅ Best practice
@@ -101,7 +103,7 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "nihalpatel7864@gmail.com"
-EMAIL_HOST_PASSWORD = "sllp retn lyuj xoig"  # ⚠️ Move to env variable in production
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD") # ⚠️ Move to env variable in production
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 3600
