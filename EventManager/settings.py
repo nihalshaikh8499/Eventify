@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 import dj_database_url 
 from dotenv import load_dotenv
+from decouple import config
 
 load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -97,6 +98,8 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
+
+MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
