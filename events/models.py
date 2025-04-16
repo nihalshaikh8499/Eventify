@@ -28,8 +28,13 @@ class Event(models.Model):
     registration_deadline = models.DateTimeField(null=True, blank=True)
     
     def save(self, *args, **kwargs):
+        # Ensure 'date' is set before calculating the registration_deadline
         if not self.registration_deadline:
-            self.registration_deadline = timezone.datetime.combine(self.date, timezone.datetime.min.time()) - timezone.timedelta(days=1)
+            if self.date:
+                # Setting registration deadline to one day before the event's date
+                self.registration_deadline = timezone.datetime.combine(self.date, timezone.datetime.min.time()) - timezone.timedelta(days=1)
+            else:
+                raise ValueError("Event date must be set before saving.")
         super().save(*args, **kwargs)
 
     def is_registration_expired(self):

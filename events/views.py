@@ -37,6 +37,16 @@ class CreateEventView(LoginRequiredMixin,CreateView):
     form_class = EventForm
     template_name = 'create_event.html'
     success_url = reverse_lazy('admin_event_list')
+    
+    def form_valid(self, form):
+        try:
+            # Log the form data for debugging
+            print(form.cleaned_data)  # This will output the cleaned data in your console
+            return super().form_valid(form)
+        except Exception as e:
+            # Handle form error and log the error message
+            print(f"Error during event creation: {e}")
+            return self.form_invalid(form)
 
 class EditEventView(LoginRequiredMixin,UpdateView):
     model = Event

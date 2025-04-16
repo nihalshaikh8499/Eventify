@@ -3,6 +3,9 @@ import os
 import dj_database_url 
 from dotenv import load_dotenv
 from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,11 +96,18 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # ✅ MEDIA FILES
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+cloudinary.config(
+    cloud_name="dxprvvzoe",  # Replace with your Cloudinary cloud name
+    api_key="474529342225393",        # Replace with your Cloudinary API key
+    api_secret="XbZOsxFSxDrysTzR8SNU_lvCaA0"   # Replace with your Cloudinary API secret
+)
+
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
 }
+
 
 MEDIA_URL = '/media/'
 
