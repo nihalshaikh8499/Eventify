@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
 from django.utils import timezone 
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Event(models.Model):
@@ -18,8 +19,8 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField()
     venue = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='event_images/', blank=True, null=True)  
-    min_players = models.PositiveIntegerField(default=1)  
+    image = CloudinaryField('image', blank=True, null=True)  # Change to CloudinaryField
+    min_players = models.PositiveIntegerField(default=1)
     max_players = models.PositiveIntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     rule_book = models.FileField(upload_to='rule_books/', blank=True, null=True)
@@ -32,7 +33,7 @@ class Event(models.Model):
         super().save(*args, **kwargs)
 
     def is_registration_expired(self):
-        return self.registration_deadline and self.registration_deadline < now()
+        return self.registration_deadline and self.registration_deadline < timezone.now()
 
     def __str__(self):
         return self.name
@@ -118,7 +119,7 @@ class EventHighlight(models.Model):
 
 class EventImage(models.Model):
     event = models.ForeignKey(EventHighlight, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='event_highlights/')
+    image = CloudinaryField('image')  # Change to CloudinaryField
 
     def __str__(self):
         return f"Image for {self.event.title}"
