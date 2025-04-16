@@ -936,6 +936,136 @@
         }
     },
     {
+        "model": "admin.logentry",
+        "pk": 73,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.580Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "20",
+            "object_repr": "Treasure Hunt",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 74,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "19",
+            "object_repr": "Photography Competition",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 75,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "18",
+            "object_repr": "Debate Competition",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 76,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "17",
+            "object_repr": "Code Unseen",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 77,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "16",
+            "object_repr": "Debug Battle",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 78,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "15",
+            "object_repr": "Code Clash",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 79,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "14",
+            "object_repr": "Badminton",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 80,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "13",
+            "object_repr": "Football",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 81,
+        "fields": {
+            "action_time": "2025-04-16T06:18:18.581Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "12",
+            "object_repr": "Cricket",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 82,
+        "fields": {
+            "action_time": "2025-04-16T06:18:38.610Z",
+            "user": 1,
+            "content_type": 15,
+            "object_id": "1",
+            "object_repr": "Cricket",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
         "model": "auth.permission",
         "pk": 1,
         "fields": {
@@ -1552,7 +1682,7 @@
         "pk": 1,
         "fields": {
             "password": "pbkdf2_sha256$870000$TEBgvNaoklJLPfEDijt80p$74XnI7tEh3pOkkFevgenAU8njBqGHQmvWOPOYQDWYIg=",
-            "last_login": "2025-04-14T07:06:55.846Z",
+            "last_login": "2025-04-16T06:18:01.782Z",
             "is_superuser": true,
             "username": "Nihal",
             "first_name": "",
@@ -2013,6 +2143,14 @@
     },
     {
         "model": "sessions.session",
+        "pk": "ccqdqx10mhanfhkpxr7fvg3la1t93p1x",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pCBQgdduu8ZyMBMpGogKe3KeHdt0oVu_3vvv1SkbS1x67LEmdVFGXX63RLlh9Qd8J3qrenc6rrMSe-KPmjXU2N5Xg_376BQL98aPVJI3uQEOORA2VoGYEwOxQkYEkE2dM7WWT94gAQQxtEHRnQURL0_2-E3Xg:1u4HDB:GuKljenYmquTrpg-KAI9XX0GI8Cixwi3roO_qty_MMA",
+            "expire_date": "2025-04-14T11:38:45.085Z"
+        }
+    },
+    {
+        "model": "sessions.session",
         "pk": "cwr5a0m69vahfvkdqlhmep995i6wztdv",
         "fields": {
             "session_data": ".eJxVjDsOwjAQBe_iGln-fyjpOYO167VxADlSnFSIu0OkFNC-mXkvlmBbW9pGWdJE7MwkO_1uCPlR-g7oDv028zz3dZmQ7wo_6ODXmcrzcrh_Bw1G-9YqWqlAaR9s9ZEggHBahOp8kMZIoSQGJI3g0AFqEz1WYQ2BzsoXA-z9AbRRNzQ:1u0gnP:LTckFx9Jr93cMhv6nR2o7dPjJLnqJMw4xuhUjezpMpc",
@@ -2061,6 +2199,14 @@
     },
     {
         "model": "sessions.session",
+        "pk": "hvoavzxh1kd0792ggydclrqow0x35z2o",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pCBQgdduu8ZyMBMpGogKe3KeHdt0oVu_3vvv1SkbS1x67LEmdVFGXX63RLlh9Qd8J3qrenc6rrMSe-KPmjXU2N5Xg_376BQL98aPVJI3uQEOORA2VoGYEwOxQkYEkE2dM7WWT94gAQQxtEHRnQURL0_2-E3Xg:1u4Hoh:EzTfdV7987tnYzUwcuiaja-vJ6fqkUOeC0-YQD8sGro",
+            "expire_date": "2025-04-14T12:17:31.147Z"
+        }
+    },
+    {
+        "model": "sessions.session",
         "pk": "hzlv2c3ykxoeesdw2je41imbwh1t3m01",
         "fields": {
             "session_data": ".eJxVjLEOwjAMRP8lM4pIGrDDyN5vqOzYJQWUSE07If4dKnWA8e69u5cZaF3ysDadh0nMxXhnDr8lU3po2YjcqdyqTbUs88R2U-xOm-2r6PO6u38HmVr-rknROwZMARQRTzB2AtHFKIwdEKBumRUSMYVAgY4xsY4SfRd4PJv3Bw7-OLw:1u3bN0:8lxb3Go2JmEowX2oG2mnjso91YVkWqFGPJsew87kfng",
@@ -2085,10 +2231,26 @@
     },
     {
         "model": "sessions.session",
+        "pk": "j2ssck6zr9v0pyuu5sjxm5a0b33hzsoj",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pCBQgdduu8ZyMBMpGogKe3KeHdt0oVu_3vvv1SkbS1x67LEmdVFGXX63RLlh9Qd8J3qrenc6rrMSe-KPmjXU2N5Xg_376BQL98aPVJI3uQEOORA2VoGYEwOxQkYEkE2dM7WWT94gAQQxtEHRnQURL0_2-E3Xg:1u4J68:p9kbni6HnEFJ01j1RfRBz7i-XKa8Wvikv9zKNE12IaY",
+            "expire_date": "2025-04-14T13:39:36.475Z"
+        }
+    },
+    {
+        "model": "sessions.session",
         "pk": "jlccacejfwcje00cuoiqc8ur67zb8do3",
         "fields": {
             "session_data": ".eJxVjDsOwjAQBe_iGln-fyjpOYO167VxADlSnFSIu0OkFNC-mXkvlmBbW9pGWdJE7MwkO_1uCPlR-g7oDv028zz3dZmQ7wo_6ODXmcrzcrh_Bw1G-9YqWqlAaR9s9ZEggHBahOp8kMZIoSQGJI3g0AFqEz1WYQ2BzsoXA-z9AbRRNzQ:1tsfBF:SqhLYkkZng9xA8c8-J9DyeeZV5n477G9JDV9jcAHLkU",
             "expire_date": "2025-03-27T09:48:45.374Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "jraq1u3i7po9g6cptzvhp0r8mfhp2ira",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pCBQgdduu8ZyMBMpGogKe3KeHdt0oVu_3vvv1SkbS1x67LEmdVFGXX63RLlh9Qd8J3qrenc6rrMSe-KPmjXU2N5Xg_376BQL98aPVJI3uQEOORA2VoGYEwOxQkYEkE2dM7WWT94gAQQxtEHRnQURL0_2-E3Xg:1u4w5x:2JLLU92EvgZDSTLJcKnWJ-Jfyv7mSnygahj7X87qFrM",
+            "expire_date": "2025-04-16T07:18:01.792Z"
         }
     },
     {
@@ -2213,6 +2375,14 @@
     },
     {
         "model": "sessions.session",
+        "pk": "p55jtp58czq8uyzz2i3phyl7hsde1mcm",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pCBQgdduu8ZyMBMpGogKe3KeHdt0oVu_3vvv1SkbS1x67LEmdVFGXX63RLlh9Qd8J3qrenc6rrMSe-KPmjXU2N5Xg_376BQL98aPVJI3uQEOORA2VoGYEwOxQkYEkE2dM7WWT94gAQQxtEHRnQURL0_2-E3Xg:1u4HDS:UB46q169csFKBKt6xjq0l5KEzxq8IF6rhXdUk4Fq7yw",
+            "expire_date": "2025-04-14T11:39:02.718Z"
+        }
+    },
+    {
+        "model": "sessions.session",
         "pk": "qi5p3p90dfblzlwstdnex4bapm9eyauf",
         "fields": {
             "session_data": ".eJxVjDsOwjAQBe_iGln-fyjpOYO167VxADlSnFSIu0OkFNC-mXkvlmBbW9pGWdJE7MwkO_1uCPlR-g7oDv028zz3dZmQ7wo_6ODXmcrzcrh_Bw1G-9YqWqlAaR9s9ZEggHBahOp8kMZIoSQGJI3g0AFqEz1WYQ2BzsoXA-z9AbRRNzQ:1ttsi2:nchy2hHDw8fbo-D4siUPa792AujRj-u2-J28_QdVqA8",
@@ -2309,6 +2479,14 @@
     },
     {
         "model": "sessions.session",
+        "pk": "y1c328n68bnya5dr9w3rbu6z7493cgos",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pCBQgdduu8ZyMBMpGogKe3KeHdt0oVu_3vvv1SkbS1x67LEmdVFGXX63RLlh9Qd8J3qrenc6rrMSe-KPmjXU2N5Xg_376BQL98aPVJI3uQEOORA2VoGYEwOxQkYEkE2dM7WWT94gAQQxtEHRnQURL0_2-E3Xg:1u4Hv7:adJgssz4mjPD-lxYMbTkLjOXGOL0lzuC_yOS0iUh9Ts",
+            "expire_date": "2025-04-14T12:24:09.637Z"
+        }
+    },
+    {
+        "model": "sessions.session",
         "pk": "yy63fsz4plnmgkdgy5oqv36htx6zdl8o",
         "fields": {
             "session_data": ".eJxVjDsOwjAQBe_iGln-fyjpOYO167VxADlSnFSIu0OkFNC-mXkvlmBbW9pGWdJE7MwkO_1uCPlR-g7oDv028zz3dZmQ7wo_6ODXmcrzcrh_Bw1G-9YqWqlAaR9s9ZEggHBahOp8kMZIoSQGJI3g0AFqEz1WYQ2BzsoXA-z9AbRRNzQ:1tvsDn:e4V9_23k_jGZlN79hcUef1AAWfFAWC2DrJBlx9uqjOc",
@@ -2325,189 +2503,21 @@
     },
     {
         "model": "events.event",
-        "pk": 12,
+        "pk": 21,
         "fields": {
-            "name": "Cricket",
-            "description": "A exiciting cricket tournament packed with fun!!!",
+            "name": "Nihal Shaikh",
+            "description": "Nihal",
             "category": "Sports",
-            "date": "2025-04-30",
-            "time": "18:33:54",
-            "venue": "College Ground",
-            "image": "event_images/crikcet1.jpg",
-            "min_players": 11,
-            "max_players": 11,
-            "created_at": "2025-04-12T13:04:29.540Z",
-            "rule_book": "",
-            "volunteer_requirement": 5,
-            "registration_deadline": "2025-04-28T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 13,
-        "fields": {
-            "name": "Football",
-            "description": "A really intense football tournament!",
-            "category": "Sports",
-            "date": "2025-04-29",
-            "time": "18:35:08",
-            "venue": "College Ground",
-            "image": "event_images/football.jpg",
+            "date": "2025-04-23",
+            "time": "11:54:00",
+            "venue": "College Campus",
+            "image": "image/upload/v1744785477/ucz55qdxwlqyuimkfej0.jpg",
             "min_players": 1,
             "max_players": 1,
-            "created_at": "2025-04-12T13:06:32.450Z",
-            "rule_book": "",
-            "volunteer_requirement": 5,
-            "registration_deadline": "2025-04-27T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 14,
-        "fields": {
-            "name": "Badminton",
-            "description": "A mixed singles tournament",
-            "category": "Sports",
-            "date": "2025-04-28",
-            "time": "18:39:44",
-            "venue": "Badminton Court",
-            "image": "event_images/badminton.jpg",
-            "min_players": 1,
-            "max_players": 1,
-            "created_at": "2025-04-12T13:10:14.180Z",
-            "rule_book": "",
-            "volunteer_requirement": 2,
-            "registration_deadline": "2025-04-26T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 15,
-        "fields": {
-            "name": "Code Clash",
-            "description": "An exciting coding battle where the best minds clash!!!",
-            "category": "Coding",
-            "date": "2025-04-25",
-            "time": "18:42:10",
-            "venue": "Computer Lab",
-            "image": "event_images/code_clash.jpeg",
-            "min_players": 1,
-            "max_players": 1,
-            "created_at": "2025-04-12T13:12:33.105Z",
-            "rule_book": "",
-            "volunteer_requirement": 2,
-            "registration_deadline": "2025-04-23T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 16,
-        "fields": {
-            "name": "Debug Battle",
-            "description": "You have to have an keen eye to  find those nasty bugs!!!!",
-            "category": "Coding",
-            "date": "2025-04-26",
-            "time": "18:45:38",
-            "venue": "Computer Lab",
-            "image": "event_images/debug_battle_fW1U6oR.jpeg",
-            "min_players": 1,
-            "max_players": 2,
-            "created_at": "2025-04-12T13:16:15.546Z",
-            "rule_book": "",
-            "volunteer_requirement": 2,
-            "registration_deadline": "2025-04-24T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 17,
-        "fields": {
-            "name": "Code Unseen",
-            "description": "A coding competition where only your senses can guide you!",
-            "category": "Coding",
-            "date": "2025-04-24",
-            "time": "00:37:00",
-            "venue": "Computer Lab",
-            "image": "event_images/freepik__a-retrostyle-poster-for-the-code-unseen-coding-com__32792.jpeg",
-            "min_players": 1,
-            "max_players": 1,
-            "created_at": "2025-04-14T06:07:55.261Z",
-            "rule_book": "",
-            "volunteer_requirement": 2,
-            "registration_deadline": "2025-04-22T19:07:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 18,
-        "fields": {
-            "name": "Debate Competition",
-            "description": "A thrilling battle of words which have the power of shaping minds!",
-            "category": "Cultural",
-            "date": "2025-05-01",
-            "time": "13:30:00",
-            "venue": "Seminar Hall",
-            "image": "event_images/16375257_Happy_male_and_female_politicians_greeting_each_other_on_stage_z9JwpzX.jpg",
-            "min_players": 1,
-            "max_players": 1,
-            "created_at": "2025-04-14T06:52:07.570Z",
+            "created_at": "2025-04-16T06:30:55.967Z",
             "rule_book": "",
             "volunteer_requirement": 0,
-            "registration_deadline": "2025-04-29T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 19,
-        "fields": {
-            "name": "Photography Competition",
-            "description": "Participate to showcase your skills to capture any magical moment with excellence!",
-            "category": "Cultural",
-            "date": "2025-05-02",
-            "time": "11:15:00",
-            "venue": "College Campus",
-            "image": "event_images/3122812_36680_p9a7drA.jpg",
-            "min_players": 1,
-            "max_players": 1,
-            "created_at": "2025-04-14T06:54:08.814Z",
-            "rule_book": "",
-            "volunteer_requirement": 5,
-            "registration_deadline": "2025-04-30T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.event",
-        "pk": 20,
-        "fields": {
-            "name": "Treasure Hunt",
-            "description": "Join us on an adventure of finding the treasure!!!",
-            "category": "Cultural",
-            "date": "2025-05-02",
-            "time": "14:30:00",
-            "venue": "College Campus",
-            "image": "event_images/1146709_123669-OQJXIT-449_4foaX68.jpg",
-            "min_players": 2,
-            "max_players": 5,
-            "created_at": "2025-04-14T06:55:45.829Z",
-            "rule_book": "",
-            "volunteer_requirement": 10,
-            "registration_deadline": "2025-04-30T18:30:00Z"
-        }
-    },
-    {
-        "model": "events.eventregistration",
-        "pk": 13,
-        "fields": {
-            "user": 21,
-            "event": 15,
-            "phone_number": "7822005394",
-            "department": "FY MCA",
-            "players": [
-                {
-                    "name": "Nihal Shaikh",
-                    "roll_number": "2401181"
-                }
-            ]
+            "registration_deadline": "2025-04-20T06:30:00Z"
         }
     },
     {
@@ -2515,47 +2525,6 @@
         "pk": 2,
         "fields": {
             "email": "nihalshaikh8499@gmail.com"
-        }
-    },
-    {
-        "model": "events.eventhighlight",
-        "pk": 1,
-        "fields": {
-            "title": "Cricket",
-            "description": "",
-            "created_at": "2025-04-05T01:31:56.095Z"
-        }
-    },
-    {
-        "model": "events.eventimage",
-        "pk": 1,
-        "fields": {
-            "event": 1,
-            "image": "event_highlights/crikcet1.jpg"
-        }
-    },
-    {
-        "model": "events.eventimage",
-        "pk": 2,
-        "fields": {
-            "event": 1,
-            "image": "event_highlights/cricket2.jpg"
-        }
-    },
-    {
-        "model": "events.eventimage",
-        "pk": 3,
-        "fields": {
-            "event": 1,
-            "image": "event_highlights/cricket3.jpg"
-        }
-    },
-    {
-        "model": "events.eventimage",
-        "pk": 4,
-        "fields": {
-            "event": 1,
-            "image": "event_highlights/crikcet1_FSoVx3x.jpg"
         }
     }
 ]
