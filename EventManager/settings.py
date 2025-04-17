@@ -10,11 +10,11 @@ import cloudinary.api
 load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-cj9z22e96a+spv0a@fh!7tn1f=t2_$pu#lp@tbw3xppncx6z)p')  # ✅ Best practice
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-cj9z22e96a+spv0a@fh!7tn1f=t2_$pu#lp@tbw3xppncx6z)p') 
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'  # ✅ Use environment variable to toggle debug
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'  
 
-ALLOWED_HOSTS = ['*']  # ✅ You can restrict this later, or use `render.com` domain
+ALLOWED_HOSTS = ['*']  
 
 # Application definition
 
@@ -33,7 +33,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ Added for static file handling on Render
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -62,7 +62,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'EventManager.wsgi.application'
 
-# ✅ DATABASE CONFIG FOR RENDER
+
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -70,7 +70,6 @@ DATABASES = {
     )
 }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -78,27 +77,26 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ STATIC FILES FOR PRODUCTION
+
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ collectstatic will dump files here
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
-# ✅ Tell WhiteNoise to compress files
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# ✅ MEDIA FILES
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 cloudinary.config(
-    cloud_name="dxprvvzoe",  # Replace with your Cloudinary cloud name
-    api_key="474529342225393",        # Replace with your Cloudinary API key
-    api_secret="XbZOsxFSxDrysTzR8SNU_lvCaA0"   # Replace with your Cloudinary API secret
+    cloud_name=config("CLOUD_NAME"),
+    api_key=config("CLOUDINARY_API_KEY"),
+    api_secret=config("CLOUDINARY_API_SECRET")
 )
 
 CLOUDINARY_STORAGE = {
@@ -112,7 +110,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ✅ AUTH + SESSION CONFIG
+
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = 'event_list'
 LOGOUT_REDIRECT_URL = '/accounts/login'
@@ -121,8 +119,8 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "nihalpatel7864@gmail.com"
-EMAIL_HOST_PASSWORD = "sllp retn lyuj xoig" 
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 3600

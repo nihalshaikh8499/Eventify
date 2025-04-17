@@ -26,7 +26,7 @@
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
     
-    /* Fixed buttons styles */
+    
     .fixed-action-buttons {
         position: fixed;
         top: 70px; /* Position below the navbar */
@@ -38,7 +38,7 @@
     }
 </style>
 
-<!-- Fixed buttons that will stay visible when scrolling -->
+
 <div class="fixed-action-buttons">
     <a href="{% url 'create_event' %}" class="btn btn-primary rounded-pill">+ Create Event</a>
     <a href="{% url 'delete_completed_events' %}" class="btn btn-danger rounded-pill"><i class="bi bi-trash"></i> Completed Events</a>
@@ -53,7 +53,7 @@
     <div class="d-flex justify-content-between align-items-center ms-2 pt-3 me-4">
         <h1 class="mb-0">Sports Events</h1>
         <!-- Original buttons removed since they're now fixed -->
-        <div style="width: 280px;"></div> <!-- Spacer to maintain original layout -->
+        <div style="width: 280px;"></div> 
     </div>
     <hr>
     {% include 'partials/admin_event_cards.html' with events=sports_events %}

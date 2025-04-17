@@ -87,7 +87,7 @@
         </div>
     </nav>
 
-    <!-- Sidebar -->
+    
     <div class="sidebar text-white bg-dark px-3 py-2">
       {% if not request.user.is_staff %}
       <a href="{% url 'profile' %}" class="d-inline-flex align-items-center text-white text-decoration-none">
@@ -123,7 +123,7 @@
       {% endif %}
     </div>
 
-    <!-- Main Content -->
+    
     <div class="content">
         {% block content %}
         {% endblock %}
