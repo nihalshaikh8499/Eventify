@@ -40,11 +40,11 @@ class CreateEventView(LoginRequiredMixin,CreateView):
     
     def form_valid(self, form):
         try:
-            # Log the form data for debugging
-            print(form.cleaned_data)  # This will output the cleaned data in your console
+           
+            print(form.cleaned_data) 
             return super().form_valid(form)
         except Exception as e:
-            # Handle form error and log the error message
+           
             print(f"Error during event creation: {e}")
             return self.form_invalid(form)
 
@@ -78,7 +78,7 @@ def download_participants(request, pk):
     writer.writerow(['Username', 'Email', 'Phone Number', 'Department', 'Players'])
 
     for reg in registrations:
-        # Safely extract player names (or any other info)
+        
         players_str = ', '.join(player.get('name', '') for player in reg.players)
 
         writer.writerow([
@@ -132,32 +132,31 @@ def delete_contact_message(request, message_id):
     messages.success(request, "Message deleted successfully.")
     return redirect('contact_messages')
 
-# Restrict access to staff users only
+
 class StaffRequiredMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_staff
 
-# List View
+
 class AllowedEmailListView(LoginRequiredMixin, StaffRequiredMixin, ListView):
     model = AllowedEmail
     template_name = 'allowed_emails.html'
     context_object_name = 'emails'
 
-# Create View
 class AllowedEmailCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
     model = AllowedEmail
     fields = ['email']
     template_name = 'allowed_email_form.html'
     success_url = reverse_lazy('allowed_email_list')
 
-# Update View
+
 class AllowedEmailUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
     model = AllowedEmail
     fields = ['email']
     template_name = 'allowed_email_form.html'
     success_url = reverse_lazy('allowed_email_list')
 
-# Delete View
+
 class AllowedEmailDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = AllowedEmail
     template_name = 'allowed_email_confirm_delete.html'
@@ -173,22 +172,22 @@ def create_event_highlight(request):
         title = data.get('title')
         description = data.get('description')
 
-        # Save the EventHighlight
+        
         highlight = EventHighlight.objects.create(
             title=title,
             description=description
         )
 
-        # Save associated images
+       
         for image in images:
             EventImage.objects.create(
                 event=highlight,
                 image=image
             )
 
-        return redirect('highlights_list')  # Replace with your actual redirect
+        return redirect('highlights_list')  
 
-    return render(request, 'create_highlight.html')  # Update path if needed
+    return render(request, 'create_highlight.html')  
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
@@ -232,9 +231,9 @@ def delete_highlight(request, pk):
     if request.method == "POST" and request.user.is_staff:
         highlight = get_object_or_404(EventHighlight, pk=pk)
         highlight.delete()
-    return redirect('highlights_list')  # change to your list view name
+    return redirect('highlights_list')  
 
-# Create your views here.
+
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
@@ -490,21 +489,17 @@ def volunteer_registration(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     registered_volunteers = VolunteerRegistration.objects.filter(event=event).count()
 
-
     if registered_volunteers >= event.volunteer_requirement:
         messages.error(request, "Volunteer slots for this event are full.")
         return redirect('volunteer_events')
-
 
     if VolunteerRegistration.objects.filter(user=request.user, event=event).exists():
         messages.warning(request, "You have already registered as a volunteer for this event.")
         return redirect('volunteer_events')
 
-
     if EventRegistration.objects.filter(user=request.user, event=event).exists():
         messages.error(request, "You cannot register as a volunteer because you are already a participant.")
         return redirect('volunteer_events')
-
 
     if request.method == 'POST':
         form = VolunteerRegistrationForm(request.POST)
@@ -513,6 +508,22 @@ def volunteer_registration(request, event_id):
             volunteer.user = request.user
             volunteer.event = event
             volunteer.save()
+
+            
+            send_mail(
+                subject=f"Volunteer Registration Confirmed: {event.name}",
+                message=(
+                    f"Hi {request.user.username},\n\n"
+                    f"Thank you for volunteering for the event '{event.name}'.\n"
+                    f"The event will take place on {event.date} at {event.venue}.\n"
+                    f"We truly appreciate your support!\n\n"
+                    f"Best Regards,\nEvent Team"
+                ),
+                from_email='nihalpatel7864@gmail.com',
+                recipient_list=[request.user.email],
+                fail_silently=False,
+            )
+
             messages.success(request, "You have successfully registered as a volunteer.")
             return redirect('volunteer_events')
     else:
