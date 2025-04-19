@@ -29,9 +29,9 @@ import csv
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core.mail import EmailMessage
 
 
-"""Event Admin"""
 class CreateEventView(LoginRequiredMixin,CreateView):
     model = Event
     form_class = EventForm
@@ -422,19 +422,26 @@ def register(request):
             user.is_active = False  
             user.save()
 
-           
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             current_site = get_current_site(request)
             verification_link = f"http://{current_site.domain}/verify/{uid}/{token}/"
 
-            
             subject = "Verify Your Email Address"
             message = render_to_string('registration/verification_email.html', {
                 'user': user,
                 'verification_link': verification_link,
             })
-            send_mail(subject, message, 'your-email@gmail.com', [user.email])
+
+            # ✅ Use EmailMessage to send HTML email
+            email = EmailMessage(
+                subject,
+                message,
+                'your-email@gmail.com',  # From
+                [user.email],            # To
+            )
+            email.content_subtype = "html"  # IMPORTANT: tells Django to send as HTML
+            email.send()
 
             return render(request, 'registration/verification_sent.html')
     else:
