@@ -30,7 +30,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.mail import EmailMessage
-
+from django.conf import settings
 
 class CreateEventView(LoginRequiredMixin,CreateView):
     model = Event
@@ -355,7 +355,6 @@ def event_detail(request, event_id):
 def event_registration(request, event_id):
     event = get_object_or_404(Event, id=event_id)
 
-    
     if EventRegistration.objects.filter(user=request.user, event=event).exists():
         return render(request, 'already_registered.html', {'event': event})
 
@@ -379,14 +378,13 @@ def event_registration(request, event_id):
                 players=players
             )
 
-           
             send_mail(
                 subject=f"Registration Successful: {event.name}",
                 message=f"Dear {request.user.username},\n\n"
                         f"You have successfully registered for the event '{event.name}' scheduled on {event.date} at {event.venue}.\n"
                         f"Thank you for participating!\n\n"
                         f"Best Regards,\nEvent Team",
-                from_email='nihalpatel7864@gmail.com',
+                from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[request.user.email],
                 fail_silently=False,
             )
@@ -425,7 +423,8 @@ def register(request):
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             current_site = get_current_site(request)
-            verification_link = f"http://{current_site.domain}/verify/{uid}/{token}/"
+            protocol = 'https' if request.is_secure() else 'http'
+            verification_link = f"{protocol}://{current_site.domain}/verify/{uid}/{token}/"
 
             subject = "Verify Your Email Address"
             message = render_to_string('registration/verification_email.html', {
@@ -437,7 +436,7 @@ def register(request):
             email = EmailMessage(
                 subject,
                 message,
-                'your-email@gmail.com',  # From
+                settings.DEFAULT_FROM_EMAIL,  # From
                 [user.email],            # To
             )
             email.content_subtype = "html"  # IMPORTANT: tells Django to send as HTML
@@ -516,7 +515,6 @@ def volunteer_registration(request, event_id):
             volunteer.event = event
             volunteer.save()
 
-            
             send_mail(
                 subject=f"Volunteer Registration Confirmed: {event.name}",
                 message=(
@@ -526,7 +524,7 @@ def volunteer_registration(request, event_id):
                     f"We truly appreciate your support!\n\n"
                     f"Best Regards,\nEvent Team"
                 ),
-                from_email='nihalpatel7864@gmail.com',
+                from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[request.user.email],
                 fail_silently=False,
             )
