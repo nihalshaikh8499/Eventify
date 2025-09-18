@@ -432,7 +432,7 @@ def register(request):
                 'verification_link': verification_link,
             })
 
-            # ✅ Use EmailMessage to send HTML email
+           
             email = EmailMessage(
                 subject,
                 message,
