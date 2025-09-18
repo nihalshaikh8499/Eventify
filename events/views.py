@@ -31,10 +31,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.mail import EmailMessage
 from django.conf import settings
-from django.core.mail import EmailMessage
-from .utils import send_email_async
-from django.conf import settings
-from django.template.loader import render_to_string
 
 class CreateEventView(LoginRequiredMixin,CreateView):
     model = Event
@@ -382,19 +378,16 @@ def event_registration(request, event_id):
                 players=players
             )
 
-            # Send email asynchronously
-            email = EmailMessage(
+            send_mail(
                 subject=f"Registration Successful: {event.name}",
-                body=(
-                    f"Dear {request.user.username},\n\n"
-                    f"You have successfully registered for the event '{event.name}' scheduled on {event.date} at {event.venue}.\n"
-                    f"Thank you for participating!\n\n"
-                    f"Best Regards,\nEvent Team"
-                ),
+                message=f"Dear {request.user.username},\n\n"
+                        f"You have successfully registered for the event '{event.name}' scheduled on {event.date} at {event.venue}.\n"
+                        f"Thank you for participating!\n\n"
+                        f"Best Regards,\nEvent Team",
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[request.user.email],
+                recipient_list=[request.user.email],
+                fail_silently=False,
             )
-            send_email_async(email)
 
             return redirect('event_list')
     else:
@@ -424,7 +417,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False  # inactive until email verification
+            user.is_active = False  
             user.save()
 
             token = default_token_generator.make_token(user)
@@ -439,15 +432,15 @@ def register(request):
                 'verification_link': verification_link,
             })
 
-            # Send verification email asynchronously
+           
             email = EmailMessage(
                 subject,
                 message,
-                settings.DEFAULT_FROM_EMAIL,
-                [user.email],
+                settings.DEFAULT_FROM_EMAIL,  # From
+                [user.email],            # To
             )
-            email.content_subtype = "html"
-            send_email_async(email)
+            email.content_subtype = "html"  # IMPORTANT: tells Django to send as HTML
+            email.send()
 
             return render(request, 'registration/verification_sent.html')
     else:
@@ -522,10 +515,9 @@ def volunteer_registration(request, event_id):
             volunteer.event = event
             volunteer.save()
 
-            # Send email asynchronously
-            email = EmailMessage(
+            send_mail(
                 subject=f"Volunteer Registration Confirmed: {event.name}",
-                body=(
+                message=(
                     f"Hi {request.user.username},\n\n"
                     f"Thank you for volunteering for the event '{event.name}'.\n"
                     f"The event will take place on {event.date} at {event.venue}.\n"
@@ -533,9 +525,9 @@ def volunteer_registration(request, event_id):
                     f"Best Regards,\nEvent Team"
                 ),
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[request.user.email],
+                recipient_list=[request.user.email],
+                fail_silently=False,
             )
-            send_email_async(email)
 
             messages.success(request, "You have successfully registered as a volunteer.")
             return redirect('volunteer_events')
@@ -543,7 +535,6 @@ def volunteer_registration(request, event_id):
         form = VolunteerRegistrationForm()
 
     return render(request, 'volunteer_registration.html', {'form': form, 'event': event})
-
 
 @login_required
 def highlights_list(request):
