@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-cj9z22e96a+spv0a@fh!7tn1f=t2_$pu#lp@tbw3xppncx6z)p') 
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'  
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']  
 
@@ -130,11 +130,11 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
-EMAIL_BACKEND = "sendgrid_backend.SendGridBackend"
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = config("SENDGRID_API_KEY") 
 DEFAULT_FROM_EMAIL = 'nihalpatel7864@gmail.com' 
 
-SENDGRID_SANDBOX_MODE_IN_DEBUG = True
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 3600
