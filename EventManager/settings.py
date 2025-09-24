@@ -120,14 +120,21 @@ LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = 'event_list'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+EMAIL_BACKEND = "sendgrid_backend.SendGridBackend"
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY') # Use environment variable
+DEFAULT_FROM_EMAIL = 'your-verified-sender@example.com' # The email you verified on SendGrid
+
+SENDGRID_SANDBOX_MODE_IN_DEBUG = True
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 3600
