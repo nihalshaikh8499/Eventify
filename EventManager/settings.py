@@ -132,7 +132,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 
 EMAIL_BACKEND = "sendgrid_backend.SendGridBackend"
 SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY') # Use environment variable
-DEFAULT_FROM_EMAIL = 'your-verified-sender@example.com' # The email you verified on SendGrid
+DEFAULT_FROM_EMAIL = 'nihalpatel7864@gmail.com' # The email you verified on SendGrid
 
 SENDGRID_SANDBOX_MODE_IN_DEBUG = True
 
