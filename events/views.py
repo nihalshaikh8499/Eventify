@@ -416,6 +416,12 @@ def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
+            user_email = form.cleaned_data.get('email')
+
+            if not AllowedEmail.objects.filter(email=user_email).exists():
+                messages.error(request, "Your email is not allowed to register.")
+                return redirect('register')
+            
             user = form.save(commit=False)
             user.is_active = False  
             user.save()
